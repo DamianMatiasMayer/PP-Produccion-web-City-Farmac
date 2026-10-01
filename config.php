@@ -1,3 +1,3 @@
 <?php
-define('BASE_URL', 'http://localhost/ProduccionWeb/PP-Farmacia/');
+define('BASE_URL', '/ProduccionWeb/PP-Produccion-web-City-Farmac/');
 define('NOMBRE_SITIO', 'City Farmac');
