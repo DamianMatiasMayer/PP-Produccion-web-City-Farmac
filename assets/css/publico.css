@@ -1,0 +1,151 @@
+/*------------------Base------------------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    color: #2d2d2d;
+    background-color: #ffffff;
+}
+
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 1rem;
+}
+
+h1 {
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin: 0 0 2rem;
+}
+
+/*------------------Header------------------- */
+header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+    padding: 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+header a {
+    color: #2d2d2d;
+    text-decoration: none;
+}
+
+header > a {
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/*------------------Grilla de productos------------------- */
+.grilla {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/*------------------Tarjeta de producto------------------- */
+.tarjeta img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.marca {
+    margin: 0 0 0.4rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #999999;
+}
+
+.tarjeta h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #000000;
+}
+
+.precio {
+    margin: 0 0 0.4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000;
+}
+
+.ranking {
+    margin: 0 0 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+}
+
+/*------------------Botón ver más------------------- */
+.ver {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.ver:hover {
+    background-color: #333333;
+}
+
+/*------------------Footer------------------- */
+footer {
+    background-color: #ffffff;
+    border-top: 1px solid #eaeaea;
+    color: #2d2d2d;
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 2rem 1rem;
+}
+
+
+@media screen and (min-width: 577px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .grilla {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 993px) {
+    .grilla {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
