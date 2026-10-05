@@ -1,0 +1,71 @@
+/*  contacto  */
+
+
+/*---------- formulario ---------- */
+.formulario-contacto {
+    max-width: 560px;
+    padding: 1.5rem;
+    background: #f6f8f8;
+    border: 1px solid #e3e6e6;
+    border-radius: 6px;
+}
+
+.formulario-contacto .campo {
+    margin-bottom: 1.1rem;
+}
+
+.formulario-contacto label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.formulario-contacto input,
+.formulario-contacto select,
+.formulario-contacto textarea {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    font: inherit;
+    border: 1px solid #c9cfcf;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.formulario-contacto textarea {
+    resize: vertical;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto select:focus,
+.formulario-contacto textarea:focus {
+    outline: 3px solid #56c3bd;
+    border-color: #23756f;
+}
+
+.formulario-contacto button {
+    padding: 0.75rem 1.75rem;
+    font: inherit;
+    font-weight: 600;
+    color: #ffffff;
+    background: #23756f;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.formulario-contacto button:hover {
+    background: #1b5f5a;
+}
+
+.aviso {
+    margin: 0 0 1.25rem;
+    padding: 0.85rem 1rem;
+    border-left: 4px solid;
+    border-radius: 4px;
+}
+
+.aviso-exito {
+    color: #1b4f4b;
+    background: #e6f5f4;
+    border-left-color: #23756f;
+}
