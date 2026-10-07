@@ -123,6 +123,16 @@ nav a:hover {
     background-color: #333333;
 }
 
+/*------------------Botón error------------------- */
+.boton {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.error-404 {
+    text-align: center;
+}
+
 /*------------------Footer------------------- */
 footer {
     background-color: #ffffff;
