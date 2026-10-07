@@ -1,0 +1,81 @@
+/* -------------------------login y registro------------------------- */
+.acceso {
+    max-width: 420px;
+}
+
+.formulario {
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+}
+
+.campo {
+    margin-bottom: 1.1rem;
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.formulario input {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    font-family: inherit;
+    font-size: inherit;
+    border: 1px solid #cccccc;
+}
+
+.formulario input:focus {
+    outline: 2px solid #000000;
+}
+
+.boton {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.85rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.boton:hover {
+    background-color: #333333;
+}
+
+.formulario .boton {
+    width: 100%;
+}
+
+.enlace-acceso {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.enlace-acceso a {
+    color: #2d2d2d;
+}
+
+/*-------------------------Avisos------------------------- */
+.aviso {
+    margin: 0 0 1.25rem;
+    padding: 0.85rem 1rem;
+    border-left: 4px solid;
+}
+
+.aviso-exito {
+    color: #1b4f2b;
+    background-color: #eef7f0;
+    border-left-color: #2e7d32;
+}
+
+.aviso-error {
+    color: #7a1f16;
+    background-color: #fdecea;
+    border-left-color: #c0392b;
+}
