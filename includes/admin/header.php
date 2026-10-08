@@ -16,17 +16,10 @@ $mostrar_menu = isset($mostrar_menu) ? $mostrar_menu : true;
 </head>
 <body>
     <header class="panel-header">
-        <a href="<?php echo BASE_URL; ?>vistas/admin/inicio.php"><?php echo NOMBRE_SITIO; ?> · Panel</a>
+        <a href="<?php echo BASE_URL; ?>vistas/admin/inicio.php"><?php echo NOMBRE_SITIO; ?> - Panel</a>
         <?php if ($mostrar_menu) { ?>
             <nav aria-label="Secciones del panel">
                 <ul>
-                    <li><a href="<?php echo BASE_URL; ?>vistas/admin/inicio.php">Inicio</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>vistas/admin/productos.php">Productos</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>vistas/admin/categorias.php">Categorías</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>vistas/admin/marcas.php">Marcas</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>vistas/admin/comentarios.php">Comentarios</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>vistas/admin/usuarios.php">Usuarios</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>vistas/admin/perfiles.php">Perfiles</a></li>
                     <li><a href="<?php echo BASE_URL; ?>vistas/admin/salir.php">Salir</a></li>
                 </ul>
             </nav>

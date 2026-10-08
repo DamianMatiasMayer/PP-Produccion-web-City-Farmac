@@ -7,7 +7,7 @@ require_once '../../includes/admin/header.php';
 
 <main>
     <h1>Bienvenido al panel</h1>
-    <p>Sesión iniciada como <strong><?php echo htmlspecialchars($_SESSION['usuario']); ?></strong>.</p>
+    <p>Sesión iniciada como <strong><?php echo isset($_SESSION['usuario']) ? htmlspecialchars($_SESSION['usuario']) : 'invitado'; ?></strong>.</p>
 
     <ul class="accesos">
         <li><a href="productos.php">Productos</a></li>
