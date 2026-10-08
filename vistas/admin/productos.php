@@ -101,21 +101,18 @@ require_once '../../includes/admin/header.php';
                             <td><?php echo htmlspecialchars($p['subcategoria']); ?></td>
                             <td>$<?php echo $p['precio']; ?></td>
                             <td>
-                                <?php if ($p['activo']) { ?>
-                                    <span class="estado estado-activo">Activo</span>
-                                <?php } else { ?>
-                                    <span class="estado estado-inactivo">Inactivo</span>
-                                <?php } ?>
+                                <?php
+                                $activo = $p['activo'];
+                                include '../../includes/componentes/estado.php';
+                                ?>
                             </td>
                             <td><?php echo $p['destacado'] ? 'Sí' : 'No'; ?></td>
                             <td class="acciones">
                                 <a href="producto_form.php?id=<?php echo $p['id']; ?>">Modificar</a>
-                                <form method="POST" action="productos.php">
-                                    <input type="hidden" name="id" value="<?php echo $p['id']; ?>">
-                                    <button type="submit" name="cambiar_estado" class="boton-texto">
-                                        <?php echo $p['activo'] ? 'Inactivar' : 'Activar'; ?>
-                                    </button>
-                                </form>
+                                <?php
+                                $id_item = $p['id'];
+                                include '../../includes/componentes/boton_estado.php';
+                                ?>
                                 <a href="comentarios.php?producto=<?php echo $p['id']; ?>">Ver comentarios</a>
                             </td>
                         </tr>

@@ -53,7 +53,9 @@ require_once '../../includes/publico/header.php';
                 <select name="marca" id="marca">
                     <option value="">Todas las marcas</option>
                     <?php foreach ($marcas as $marca) { ?>
-                        <option value="<?php echo htmlspecialchars($marca); ?>"><?php echo htmlspecialchars($marca); ?></option>
+                        <?php if ($marca['activo']) { ?>
+                            <option value="<?php echo htmlspecialchars($marca['nombre']); ?>"><?php echo htmlspecialchars($marca['nombre']); ?></option>
+                        <?php } ?>
                     <?php } ?>
                 </select>
                 <button type="submit" class="boton">Filtrar</button>
