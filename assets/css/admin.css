@@ -80,7 +80,7 @@ h1 {
     margin: 1.5rem 0 0;
     padding: 0;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 }
 
@@ -98,11 +98,204 @@ h1 {
     border-color: #000000;
 }
 
+
+/* ------------------Filtros ------------------*/
+
+.barra-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.filtros-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+}
+
+.filtros-admin .campo {
+    margin-bottom: 0;
+}
+
+.filtros-admin label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.filtros-admin select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    font-family: inherit;
+}
+
+/* ------------------Tabla ------------------*/
+.tabla-contenedor {
+    overflow-x: auto;
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla th,
+.tabla td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.tabla th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    background-color: #fafafa;
+}
+
+.estado {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+}
+
+.estado-activo {
+    color: #1b4f2b;
+    background-color: #eef7f0;
+}
+
+.estado-inactivo {
+    color: #7a1f16;
+    background-color: #fdecea;
+}
+
+.acciones {
+    white-space: nowrap;
+}
+
+.acciones a,
+.acciones form {
+    display: inline-block;
+    margin-right: 0.75rem;
+}
+
+.acciones a {
+    color: #2d2d2d;
+}
+
+.boton-texto {
+    padding: 0;
+    border: none;
+    background: none;
+    color: #2d2d2d;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.vacio {
+    padding: 3rem 1rem;
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    text-align: center;
+    color: #777777;
+}
+
+/*-----------------------------Formulario de producto-----------------------------*/
+.pagina-form {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.formulario textarea,
+.formulario select {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.formulario textarea {
+    resize: vertical;
+}
+
+.formulario textarea:focus,
+.formulario select:focus {
+    outline: 2px solid #000000;
+}
+
+.vista-previa {
+    display: block;
+    width: 120px;
+    margin-bottom: 0.5rem;
+    border: 1px solid #eaeaea;
+}
+
+.campo-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.campo-check input {
+    width: auto;
+}
+
+.campo-check label {
+    margin-bottom: 10;
+}
+
+.acciones-form {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.acciones-form .boton {
+    text-align: center;
+}
+
+.boton-secundario {
+    background-color: #ffffff;
+    color: #2d2d2d;
+    border: 1px solid #cccccc;
+}
+
+.boton-secundario:hover {
+    background-color: #f7f7f7;
+}
+
+@media screen and (min-width: 577px) {
+    .barra-admin {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .filtros-admin {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+}
+
 @media screen and (min-width: 993px) {
     .panel-header {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+    }
+
+        .accesos {
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .panel-header ul {

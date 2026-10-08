@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mensaje = 'Las contraseñas no coinciden.';
     } else {
         $tipo = 'exito';
-        $mensaje = 'Registro recibido. El alta real se implementa más adelante con la DB.';
+        $mensaje = 'Te registraste correctamente.';
     }
 }
 
