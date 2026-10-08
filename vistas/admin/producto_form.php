@@ -127,12 +127,14 @@ require_once '../../includes/admin/header.php';
                 <label for="marca">Marca</label>
                 <select name="marca" id="marca" required>
                     <option value="">Seleccioná una marca</option>
-                    <?php foreach ($marcas as $marca) { ?>
-                        <option value="<?php echo htmlspecialchars($marca); ?>"
-                            <?php echo ($marca === $valores['marca']) ? 'selected' : ''; ?>>
-                            <?php echo htmlspecialchars($marca); ?>
-                        </option>
-                    <?php } ?>
+                   <?php foreach ($marcas as $marca) { ?>
+                        <?php if ($marca['activo']) { ?>
+                            <option value="<?php echo htmlspecialchars($marca['nombre']); ?>"
+                                <?php echo ($marca['nombre'] === $valores['marca']) ? 'selected' : ''; ?>>
+                                <?php echo htmlspecialchars($marca['nombre']); ?>
+                            </option>
+                        <?php } ?>
+                <?php } ?>
                 </select>
             </div>
 
