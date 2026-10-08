@@ -209,6 +209,71 @@ h1 {
     color: #777777;
 }
 
+/*-----------------------------Formulario de producto-----------------------------*/
+.pagina-form {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.formulario textarea,
+.formulario select {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.formulario textarea {
+    resize: vertical;
+}
+
+.formulario textarea:focus,
+.formulario select:focus {
+    outline: 2px solid #000000;
+}
+
+.vista-previa {
+    display: block;
+    width: 120px;
+    margin-bottom: 0.5rem;
+    border: 1px solid #eaeaea;
+}
+
+.campo-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.campo-check input {
+    width: auto;
+}
+
+.campo-check label {
+    margin-bottom: 10;
+}
+
+.acciones-form {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.acciones-form .boton {
+    text-align: center;
+}
+
+.boton-secundario {
+    background-color: #ffffff;
+    color: #2d2d2d;
+    border: 1px solid #cccccc;
+}
+
+.boton-secundario:hover {
+    background-color: #f7f7f7;
+}
+
 @media screen and (min-width: 577px) {
     .barra-admin {
         flex-direction: row;
