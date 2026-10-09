@@ -1,9 +1,5 @@
 <?php
-// Datos de ejemplo para la vista de detalle (Instancia 1: sin base de datos).
-// Se completan con lo que ya trae datosTemporales/productos.php (nombre, marca, precio, imagen).
-// La clave de cada array es el id del producto.
-// IMPORTANTE: el promedio de las valoraciones de cada producto coincide con el 'ranking'
-// cargado en productos.php, así la tarjeta del home y el detalle muestran lo mismo.
+// Datos de ejemplo para la vista de detalle (sin base de datos).
 
 $detalles = array(
     1 => array(

@@ -18,7 +18,7 @@ foreach ($productos as $item) {
     }
 }
 
-// Producto inexistente: aviso simple (la página 404 completa es otra vista).
+// Producto inexistente: aviso simple.
 if ($producto === null) {
     http_response_code(404);
     $titulo = 'Producto no encontrado';
