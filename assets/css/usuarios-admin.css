@@ -1,0 +1,227 @@
+/* ===== Panel admin · Usuarios =====
+   Estilos propios de las vistas usuarios.php y usuario_form.php.
+   Van acotados a .usuarios-admin para no afectar al resto del panel. */
+
+.usuarios-admin h1 {
+    margin: 0 0 1rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.usuarios-admin a:focus-visible,
+.usuarios-admin button:focus-visible,
+.usuarios-admin input:focus-visible,
+.usuarios-admin select:focus-visible {
+    outline: 3px solid #56c3bd;
+    outline-offset: 1px;
+}
+
+/* ---------- Botones ---------- */
+.usuarios-admin .barra-admin {
+    margin-bottom: 1rem;
+}
+
+.usuarios-admin .boton {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    font: inherit;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    background: #23756f;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.usuarios-admin .boton:hover {
+    background: #1b5f5a;
+}
+
+.usuarios-admin .boton-secundario {
+    color: #1b5f5a;
+    background: #ffffff;
+    border: 1px solid #23756f;
+}
+
+.usuarios-admin .boton-secundario:hover {
+    color: #ffffff;
+    background: #23756f;
+}
+
+/* ---------- Tabla ---------- */
+.usuarios-admin .tabla-contenedor {
+    overflow-x: auto;
+    background: #ffffff;
+    border: 1px solid #e3e6e6;
+    border-radius: 6px;
+}
+
+.usuarios-admin .tabla {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+}
+
+.usuarios-admin .tabla th,
+.usuarios-admin .tabla td {
+    padding: 0.7rem 0.8rem;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #e3e6e6;
+}
+
+.usuarios-admin .tabla thead th {
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    background: #f6f8f8;
+}
+
+.usuarios-admin .tabla tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+/* ---------- Estado ---------- */
+.usuarios-admin .estado {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 999px;
+}
+
+.usuarios-admin .estado-activo {
+    color: #1b4f4b;
+    background: #e6f5f4;
+}
+
+.usuarios-admin .estado-inactivo {
+    color: #7a4a00;
+    background: #fff1d6;
+}
+
+/* ---------- Acciones (Modificar y Activar/Inactivar) ---------- */
+.usuarios-admin .acciones {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: normal;
+}
+
+.usuarios-admin .acciones a,
+.usuarios-admin .acciones button {
+    display: inline-block;
+    margin: 0;
+    padding: 0.4rem 0.9rem;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #1b5f5a;
+    text-decoration: none;
+    background: #ffffff;
+    border: 1px solid #23756f;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.usuarios-admin .acciones a:hover,
+.usuarios-admin .acciones button:hover {
+    color: #ffffff;
+    background: #23756f;
+}
+
+.usuarios-admin .acciones form {
+    display: inline-block;
+    margin: 0;
+}
+
+.usuarios-admin .vacio {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #6b6b6b;
+    background: #ffffff;
+    border: 1px solid #e3e6e6;
+    border-radius: 6px;
+}
+
+/* ---------- Formulario ---------- */
+.usuarios-admin .formulario {
+    padding: 1.5rem;
+    background: #f6f8f8;
+    border: 1px solid #e3e6e6;
+    border-radius: 6px;
+}
+
+.usuarios-admin .campo {
+    margin-bottom: 1.1rem;
+}
+
+.usuarios-admin .campo label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.usuarios-admin .campo input,
+.usuarios-admin .campo select {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    font: inherit;
+    color: #2d2d2d;
+    background: #ffffff;
+    border: 1px solid #c9cfcf;
+    border-radius: 4px;
+}
+
+.usuarios-admin .campo input:focus,
+.usuarios-admin .campo select:focus {
+    border-color: #23756f;
+    outline: 3px solid #56c3bd;
+    outline-offset: 0;
+}
+
+.usuarios-admin .campo small {
+    display: block;
+    margin-top: 0.3rem;
+    color: #6b6b6b;
+}
+
+.usuarios-admin .acciones-form {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* ---------- Aviso de éxito / error (por si el CSS del panel no lo trae) ---------- */
+.usuarios-admin .aviso {
+    margin: 0 0 1rem;
+    padding: 0.85rem 1rem;
+    border-left: 4px solid;
+    border-radius: 4px;
+}
+
+.usuarios-admin .aviso-exito {
+    color: #1b4f4b;
+    background: #e6f5f4;
+    border-left-color: #23756f;
+}
+
+.usuarios-admin .aviso-error {
+    color: #7a1f16;
+    background: #fdecea;
+    border-left-color: #c0392b;
+}
+
+@media (max-width: 640px) {
+    .usuarios-admin .formulario {
+        padding: 1rem;
+    }
+
+    .usuarios-admin .acciones-form {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+}
