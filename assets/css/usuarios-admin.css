@@ -1,6 +1,4 @@
-/* ===== Panel admin · Usuarios =====
-   Estilos propios de las vistas usuarios.php y usuario_form.php.
-   Van acotados a .usuarios-admin para no afectar al resto del panel. */
+/*Panel admin · Usuarios */
 
 .usuarios-admin h1 {
     margin: 0 0 1rem;

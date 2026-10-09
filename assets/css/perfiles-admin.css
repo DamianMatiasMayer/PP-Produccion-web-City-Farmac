@@ -1,0 +1,48 @@
+/*  Panel admin · Perfiles */
+    
+
+.usuarios-admin .secciones-acceso {
+    margin: 0 0 1.25rem;
+    padding: 1rem 1.25rem;
+    background: #ffffff;
+    border: 1px solid #c9cfcf;
+    border-radius: 6px;
+}
+
+.usuarios-admin .secciones-acceso legend {
+    padding: 0 0.4rem;
+    font-weight: 600;
+}
+
+.usuarios-admin .secciones-acceso .campo-check {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.35rem 0;
+}
+
+.usuarios-admin .secciones-acceso .campo-check input {
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: 0;
+    accent-color: #23756f;
+    cursor: pointer;
+}
+
+.usuarios-admin .secciones-acceso .campo-check label {
+    margin: 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+@media (min-width: 577px) {
+    .usuarios-admin .secciones-acceso {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1.5rem;
+    }
+
+    .usuarios-admin .secciones-acceso legend {
+        grid-column: 1 / -1;
+    }
+}

@@ -1,9 +1,6 @@
 <?php
-// Datos de ejemplo para la vista Comentarios del panel (Instancia 1: sin base de datos).
-// 'activo' => true  : comentario APROBADO (se ve en el detalle del producto).
-// 'activo' => false : comentario PENDIENTE / desaprobado (no se muestra en el sitio).
-// Los aprobados coinciden con los de datosTemporales/detalle_productos.php.
-// 'producto_id' coincide con el 'id' de datosTemporales/productos.php.
+// Datos de ejemplo para la vista Comentarios del panel (sin base de datos).
+
 
 $comentariosAdmin = array(
     array('id' => 1,  'producto_id' => 1, 'producto' => 'Shampoo Reparador 400 ml', 'email' => 'ana.gomez@mail.com',   'comentario' => 'Me dejó el pelo muy suave, lo vuelvo a comprar.',     'ranking' => 5, 'fecha' => '2026-09-12', 'activo' => true),
