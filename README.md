@@ -44,3 +44,40 @@ El panel está protegido por sesión. Credenciales de prueba:
 Se definen en `config.php` (`ADMIN_EMAIL` y `ADMIN_CLAVE`). Para abrir las vistas del panel
 sin loguearse, poné `PANEL_PROTEGIDO` en `false`. El registro muestra un aviso de éxito, pero
 no guarda usuarios.
+
+## Listado de vistas y URL
+
+URL base: `http://localhost/ProduccionWeb/PP-Produccion-web-City-Farmac/`
+
+### Sitio público
+
+| Vista | URL |
+|---|---|
+| Home | `index.php` |
+| Listado de productos | `vistas/publico/listado.php` |
+| Detalle de producto | `vistas/publico/detalle.php?id=1` (ids del 1 al 6) |
+| Contáctenos | `vistas/publico/contacto.php` |
+| Error 404 | `vistas/publico/404.php` |
+
+### Panel de administración
+
+URL base del panel: `http://localhost/ProduccionWeb/PP-Produccion-web-City-Farmac/vistas/admin/login.php`
+
+| Vista | URL |
+|---|---|
+| Login | `vistas/admin/login.php` |
+| Registro de usuario | `vistas/admin/registro.php` |
+| Inicio del panel | `vistas/admin/inicio.php` |
+| Productos | `vistas/admin/productos.php` |
+| Productos (alta y edición) | `vistas/admin/producto_form.php` y `producto_form.php?id=1` |
+| Categorías | `vistas/admin/categorias.php` |
+| Categorías (alta y edición) | `vistas/admin/categoria_form.php` y `categoria_form.php?id=1` |
+| Marcas | `vistas/admin/marcas.php` |
+| Marcas (alta y edición) | `vistas/admin/marca_form.php` y `marca_form.php?id=1` |
+| Comentarios | `vistas/admin/comentarios.php` |
+| Comentarios de un producto | `vistas/admin/comentarios.php?producto=1` |
+| Usuarios | `vistas/admin/usuarios.php` |
+| Usuarios (alta y edición) | `vistas/admin/usuario_form.php` y `usuario_form.php?id=2` |
+| Perfiles | `vistas/admin/perfiles.php` |
+| Perfiles (alta y edición) | `vistas/admin/perfil_form.php` y `perfil_form.php?id=2` |
+| Cerrar sesión | `vistas/admin/salir.php` |
