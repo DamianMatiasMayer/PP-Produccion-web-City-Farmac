@@ -1,55 +1,36 @@
-# PP-Produccion-web-City-Farmac
-City Farmac - Maquetado y templates del sitio público y panel de administración en PHP, HTML, CSS y JS.
+# City Farmac
 
-# City Farmac — Instancia 1: Template y vistas
+Maquetado del sitio público y del panel de administración de City Farmac (PHP, HTML, CSS y JS).
+**PP: Producción Web · Análisis de Sistemas — Da Vinci · Instancia 1 de 3 (Template y vistas)**
+**Integrantes:** Damian Mayer · Franco Di Giovanni
 
-Maquetado del sitio público y del panel de administración de una farmacia online.
-
-Integrantes: Franco Di Giovanni y Damián Matías Mayer
-
-## Alcance
-
-Esta instancia es solo maquetado: no hay base de datos. Los datos son arrays de ejemplo
-(`datosTemporales/`) y los formularios muestran un mensaje simulado, salvo el login del panel,
-que valida contra credenciales de prueba definidas en `config.php`.
-
-## Tecnologías
-
-PHP 8+, HTML5, CSS3 (Flexbox, Grid y media queries) y JavaScript.
+En esta instancia no hay base de datos: los contenidos salen de `datosTemporales/` y los formularios muestran un mensaje simulado.
 
 ## Cómo abrir el proyecto
 
-1. Copiar la carpeta del proyecto dentro de `htdocs` (XAMPP).
-2. Configurá la ruta base.
-	En `config.php`, en la constante `BASE_URL`. Es la ruta de la carpeta del proyecto
-	dentro del servidor, empezando y terminando con `/`. Todos los links, imágenes, CSS y
-	redirecciones parten de ella, así que es el único lugar que hay que cambiar.
+1. Instalar XAMPP (PHP 8 o superior) y copiar el proyecto en:
+   `C:\xampp\htdocs\ProduccionWeb\PP-Produccion-web-City-Farmac\`
+2. En el XAMPP Control Panel, iniciar **Apache**.
+3. Abrir `http://localhost/ProduccionWeb/PP-Produccion-web-City-Farmac/`
 
-Ejemplos:
+Abrir siempre por `http://localhost/...`, no con doble clic en el archivo.
 
-- Proyecto en `htdocs/PP-Produccion-web-City-Farmac/` → `define('BASE_URL', '/PP-Produccion-web-City-Farmac/');`
-- Proyecto en `htdocs/ProduccionWeb/PP-Produccion-web-City-Farmac/` → `define('BASE_URL', '/ProduccionWeb/PP-Produccion-web-City-Farmac/');`
+## Dónde se configura la ruta base
 
-3. Iniciá Apache y abrí `localhost/ProduccionWeb/PP-Produccion-web-City-Farmac/index.php` en el navegador.
-
-
+En `config.php`, constante `BASE_URL`. Se calcula **automáticamente** a partir de la ubicación del proyecto, así que no hay que editar nada si se cambia o renombra la carpeta (funciona en `htdocs`, en subcarpetas o en la raíz del servidor). Todos los links, imágenes, CSS y JS se arman a partir de ella.
 
 ## Acceso al panel
 
-El panel está protegido por sesión. Credenciales de prueba:
+URL del panel: `http://localhost/ProduccionWeb/PP-Produccion-web-City-Farmac/vistas/admin/login.php`
 
-- **Email:** `admin@cityfarmac.com`
-- **Contraseña:** `admin123`
+Ingresar con las credenciales de demostración de `config.php`: `admin@cityfarmac.com` / `admin123`.
+Con `PANEL_PROTEGIDO` en `false` (en `config.php`) las vistas del panel se abren sin iniciar sesión.
 
-Se definen en `config.php` (`ADMIN_EMAIL` y `ADMIN_CLAVE`). Para abrir las vistas del panel
-sin loguearse, poné `PANEL_PROTEGIDO` en `false`. El registro muestra un aviso de éxito, pero
-no guarda usuarios.
-
-## Listado de vistas y URL
+## Vistas y URL
 
 URL base: `http://localhost/ProduccionWeb/PP-Produccion-web-City-Farmac/`
 
-### Sitio público
+**Sitio público**
 
 | Vista | URL |
 |---|---|
@@ -59,25 +40,29 @@ URL base: `http://localhost/ProduccionWeb/PP-Produccion-web-City-Farmac/`
 | Contáctenos | `vistas/publico/contacto.php` |
 | Error 404 | `vistas/publico/404.php` |
 
-### Panel de administración
-
-URL base del panel: `http://localhost/ProduccionWeb/PP-Produccion-web-City-Farmac/vistas/admin/login.php`
+**Panel de administración** (URL base del panel: `http://localhost/ProduccionWeb/PP-Produccion-web-City-Farmac/vistas/admin/`)
 
 | Vista | URL |
 |---|---|
-| Login | `vistas/admin/login.php` |
-| Registro de usuario | `vistas/admin/registro.php` |
-| Inicio del panel | `vistas/admin/inicio.php` |
-| Productos | `vistas/admin/productos.php` |
-| Productos (alta y edición) | `vistas/admin/producto_form.php` y `producto_form.php?id=1` |
-| Categorías | `vistas/admin/categorias.php` |
-| Categorías (alta y edición) | `vistas/admin/categoria_form.php` y `categoria_form.php?id=1` |
-| Marcas | `vistas/admin/marcas.php` |
-| Marcas (alta y edición) | `vistas/admin/marca_form.php` y `marca_form.php?id=1` |
-| Comentarios | `vistas/admin/comentarios.php` |
-| Comentarios de un producto | `vistas/admin/comentarios.php?producto=1` |
-| Usuarios | `vistas/admin/usuarios.php` |
-| Usuarios (alta y edición) | `vistas/admin/usuario_form.php` y `usuario_form.php?id=2` |
-| Perfiles | `vistas/admin/perfiles.php` |
-| Perfiles (alta y edición) | `vistas/admin/perfil_form.php` y `perfil_form.php?id=2` |
-| Cerrar sesión | `vistas/admin/salir.php` |
+| Login / Registro | `login.php` / `registro.php` |
+| Inicio del panel | `inicio.php` |
+| Productos | `productos.php` · formulario: `producto_form.php` |
+| Categorías | `categorias.php` · formulario: `categoria_form.php` |
+| Marcas | `marcas.php` · formulario: `marca_form.php` |
+| Comentarios | `comentarios.php` |
+| Usuarios | `usuarios.php` · formulario: `usuario_form.php` |
+| Perfiles | `perfiles.php` · formulario: `perfil_form.php` |
+| Cerrar sesión | `salir.php` |
+
+Los formularios de edición reciben el id por URL (por ejemplo, `usuario_form.php?id=2`).
+
+## Estructura
+
+```
+assets/ (css, js, img)   Estilos, scripts e imágenes
+datosTemporales/         Datos de ejemplo
+includes/                publico/ y admin/ (header y footer de cada layout) y componentes/ (piezas reutilizables)
+vistas/                  publico/ y admin/
+config.php               Ruta base y configuración
+index.php                Home
+```

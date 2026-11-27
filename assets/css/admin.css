@@ -52,8 +52,9 @@ h1 {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
 }
 
 .panel-header nav a {
@@ -63,6 +64,12 @@ h1 {
 
 .panel-header nav a:hover {
     text-decoration: underline;
+}
+
+.panel-header nav a.activo {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.4rem;
 }
 
 /*--------------------footer----------------------------------*/
@@ -252,7 +259,7 @@ h1 {
 }
 
 .campo-check label {
-    margin-bottom: 10;
+    margin-bottom: 0;
 }
 
 .acciones-form {
@@ -299,8 +306,6 @@ h1 {
     }
 
     .panel-header ul {
-        flex-direction: row;
-        gap: 1.5rem;
+        gap: 0.5rem 1.25rem;
     }
 }
-
