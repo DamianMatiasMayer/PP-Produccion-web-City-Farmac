@@ -244,3 +244,29 @@ footer {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* Categorías desplegables en el listado */
+.filtros .categoria summary {
+    cursor: pointer;
+    padding: 0.3rem 0;
+}
+
+.filtros .categoria summary:hover {
+    text-decoration: underline;
+}
+
+.filtros .subcategorias {
+    list-style: none;
+    margin: 0.25rem 0 0.5rem;
+    padding-left: 1rem;
+}
+
+.filtros .subcategorias a.activo {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.listado .vacio {
+    padding: 3rem 1rem;
+    text-align: center;
+}
