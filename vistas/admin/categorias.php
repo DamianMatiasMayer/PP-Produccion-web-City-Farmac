@@ -2,19 +2,16 @@
 $titulo = 'Categorías';
 require_once '../../config.php';
 require_once '../../includes/admin/auth.php';
-require_once '../../datosTemporales/categorias.php';
+require_once '../../includes/conexion.php';
+require_once '../../modelos/categoria_modelo.php';
 
-/** @var array $lista_categorias */
+/** @var mysqli $conexion */
 
+// ---- Categoría principal elegida (para ver sus subcategorías) ----
 $id_padre = isset($_GET['padre']) ? (int) $_GET['padre'] : 0;
 $padre = null;
 if ($id_padre > 0) {
-    foreach ($lista_categorias as $c) {
-        if ($c['id'] === $id_padre && $c['id_padre'] === 0) {
-            $padre = $c;
-            break;
-        }
-    }
+    $padre = categoria_obtener_principal($conexion, $id_padre);
 }
 $padre_invalido = ($id_padre > 0 && $padre === null);
 
@@ -22,19 +19,32 @@ if ($padre !== null) {
     $titulo = 'Subcategorías de ' . $padre['nombre'];
 }
 
+// ---- Mensajes: vienen de una acción de esta pantalla o del formulario (por ?ok=) ----
+$mensajes_ok = array(
+    'creada'     => 'Categoría creada correctamente.',
+    'modificada' => 'Categoría modificada correctamente.',
+);
 $tipo = '';
 $mensaje = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cambiar_estado'])) {
+if (isset($_GET['ok']) && isset($mensajes_ok[$_GET['ok']])) {
     $tipo = 'exito';
-    $mensaje = 'Estado de la categoría actualizado (simulado).';
+    $mensaje = $mensajes_ok[$_GET['ok']];
 }
 
-$filas = array();
-foreach ($lista_categorias as $c) {
-    if ($c['id_padre'] === $id_padre) {
-        array_push($filas, $c);
+// ---- Activar / inactivar (baja lógica) ----
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cambiar_estado']) && !$padre_invalido) {
+    $id_cambiar = isset($_POST['id']) ? (int) $_POST['id'] : 0;
+    $nuevo_estado = categoria_cambiar_estado($conexion, $id_cambiar);
+    if ($nuevo_estado === null) {
+        $tipo = 'error';
+        $mensaje = 'No se encontró la categoría.';
+    } else {
+        $tipo = 'exito';
+        $mensaje = $nuevo_estado ? 'Categoría activada correctamente.' : 'Categoría inactivada correctamente.';
     }
 }
+
+$filas = $padre_invalido ? array() : categorias_listar($conexion, $id_padre);
 
 require_once '../../includes/admin/header.php';
 ?>
@@ -80,17 +90,7 @@ require_once '../../includes/admin/header.php';
                                 <td><?php echo $c['id']; ?></td>
                                 <td><?php echo htmlspecialchars($c['nombre']); ?></td>
                                 <?php if ($padre === null) { ?>
-                                    <td>
-                                        <?php
-                                        $cantidad = 0;
-                                        foreach ($lista_categorias as $s) {
-                                            if ($s['id_padre'] === $c['id']) {
-                                                $cantidad++;
-                                            }
-                                        }
-                                        echo $cantidad;
-                                        ?>
-                                    </td>
+                                    <td><?php echo $c['cantidad_subcategorias']; ?></td>
                                 <?php } ?>
                                 <td>
                                     <?php
