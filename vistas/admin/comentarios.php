@@ -1,45 +1,37 @@
 <?php
 require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../includes/admin/auth.php';
-require_once __DIR__ . '/../../datosTemporales/productos.php';
-require_once __DIR__ . '/../../datosTemporales/comentarios_admin.php';
+require_once __DIR__ . '/../../includes/conexion.php';
+require_once __DIR__ . '/../../modelos/comentario_modelo.php';
 
-/** @var array $productos */
-/** @var array $comentariosAdmin */
+/** @var mysqli $conexion */
 
-// Filtros (por GET): estado = todos | activos | inactivos, producto = id 
+// ---- Filtros (por GET): estado = todos | activos | inactivos, producto = id ----
 $estadosValidos = array('todos', 'activos', 'inactivos');
 $estado = (isset($_GET['estado']) && in_array($_GET['estado'], $estadosValidos, true))
     ? $_GET['estado']
     : 'todos';
 $productoId = isset($_GET['producto']) ? (int) $_GET['producto'] : 0;
 
-$nombreProducto = '';
-foreach ($productos as $item) {
-    if ($item['id'] === $productoId) {
-        $nombreProducto = $item['nombre'];
-    }
-}
+$nombreProducto = $productoId > 0 ? comentarios_nombre_producto($conexion, $productoId) : '';
 
-$lista = array_filter($comentariosAdmin, function ($c) use ($estado, $productoId) {
-    if ($estado === 'activos' && !$c['activo']) {
-        return false;
-    }
-    if ($estado === 'inactivos' && $c['activo']) {
-        return false;
-    }
-    if ($productoId > 0 && $c['producto_id'] !== $productoId) {
-        return false;
-    }
-    return true;
-});
-
-// Acción Aprobar / Desaprobar: simulada (sin base de datos) 
+// ---- Acción Aprobar / Desaprobar (se guarda en la base) ----
 $mensaje = '';
+$tipo = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion'], $_POST['id'])) {
-    $resultado = ($_POST['accion'] === 'aprobar') ? 'aprobado' : 'desaprobado';
-    $mensaje = 'El comentario #' . (int) $_POST['id'] . ' fue ' . $resultado . ' (simulado).';
+    $idComentario = (int) $_POST['id'];
+    $aprobar = ($_POST['accion'] === 'aprobar');
+    if (comentario_cambiar_aprobacion($conexion, $idComentario, $aprobar)) {
+        $tipo = 'exito';
+        $mensaje = 'El comentario #' . $idComentario . ' fue ' . ($aprobar ? 'aprobado' : 'desaprobado') . ' correctamente.';
+    } else {
+        $tipo = 'error';
+        $mensaje = 'No se encontró el comentario.';
+    }
 }
+
+// Se lee después de la acción, así la tabla ya refleja el cambio
+$lista = comentarios_listar($conexion, $estado, $productoId);
 
 $titulo = 'Comentarios';
 
@@ -53,7 +45,6 @@ require_once __DIR__ . '/../../includes/admin/header.php';
 
     <?php
     if ($mensaje !== '') {
-        $tipo = 'exito';
         include __DIR__ . '/../../includes/componentes/aviso.php';
     }
     ?>
@@ -112,20 +103,20 @@ require_once __DIR__ . '/../../includes/admin/header.php';
                                 ?>
                             </td>
                             <td>
-                                <time datetime="<?php echo $c['fecha']; ?>">
-                                    <?php echo date('d/m/Y', strtotime($c['fecha'])); ?>
+                                <time datetime="<?php echo $c['fecha_creacion']; ?>">
+                                    <?php echo date('d/m/Y', strtotime($c['fecha_creacion'])); ?>
                                 </time>
                             </td>
                             <td><?php echo htmlspecialchars($c['producto']); ?></td>
                             <td>
-                                <span class="estado <?php echo $c['activo'] ? 'estado-activo' : 'estado-inactivo'; ?>">
-                                    <?php echo $c['activo'] ? 'Aprobado' : 'Pendiente'; ?>
+                                <span class="estado <?php echo $c['aprobado'] ? 'estado-activo' : 'estado-inactivo'; ?>">
+                                    <?php echo $c['aprobado'] ? 'Aprobado' : 'Pendiente'; ?>
                                 </span>
                             </td>
                             <td>
                                 <form action="" method="post">
                                     <input type="hidden" name="id" value="<?php echo $c['id']; ?>">
-                                    <?php if ($c['activo']) { ?>
+                                    <?php if ($c['aprobado']) { ?>
                                         <button type="submit" name="accion" value="desaprobar" class="btn-tabla btn-desaprobar"
                                                 aria-label="Desaprobar comentario <?php echo $c['id']; ?>">Desaprobar</button>
                                     <?php } else { ?>
@@ -142,4 +133,4 @@ require_once __DIR__ . '/../../includes/admin/header.php';
     <?php } ?>
 </main>
 
-<?php require_once __DIR__ . '/../../includes/admin/footer.php'; ?>    
+<?php require_once __DIR__ . '/../../includes/admin/footer.php'; ?>
